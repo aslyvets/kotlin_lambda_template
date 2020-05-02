@@ -1,7 +1,5 @@
 package helloworld;
 
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -16,7 +14,7 @@ public class GatewayResponse {
     public GatewayResponse(final String body, final Map<String, String> headers, final int statusCode) {
         this.statusCode = statusCode;
         this.body = body;
-        this.headers = Collections.unmodifiableMap(new HashMap<>(headers));
+        this.headers = Map.copyOf(headers);
     }
 
     public String getBody() {
